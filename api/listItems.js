@@ -41,4 +41,32 @@ router.get("/:id", authenticate, async (req, res, next) => {
     next(e);
   }
 });
+router.put("/:id", authenticate, async (req, res, next) => {
+  const { id } = req.params;
+  const { name, myListId } = req.body;
+
+  try {
+    const listItem = await prisma.listItem.findUniqueOrThrow({
+      where: { id: +id },
+    });
+    if (!listItem) {
+      return next({
+        status: 404,
+        message: `ListItem ${id} does not exist`,
+      });
+    }
+
+    const updateData = {};
+    if (name) updateData.name = name;
+    if (myListId) updateData.myListId = +myListId;
+
+    const updatedListItem = await prisma.listItem.update({
+      where: { id: +myListId },
+      data: updateData,
+    });
+    res.json(updatedListItem);
+  } catch (e) {
+    next(e);
+  }
+});
 module.exports = router;
