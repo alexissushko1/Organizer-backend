@@ -69,4 +69,18 @@ router.put("/:id", authenticate, async (req, res, next) => {
     next(e);
   }
 });
+
+router.delete("/:id", authenticate, async (req, res, next) => {
+  const { id } = req.params;
+  try {
+    const listItem = await prisma.listItem.findUniqueOrThrow({
+      where: { id: +id },
+    });
+    await prisma.listItem.delete({ where: { id: +id } });
+    res.sendStatus(204);
+  } catch (e) {
+    next(e);
+  }
+});
+
 module.exports = router;
