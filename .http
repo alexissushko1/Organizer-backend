@@ -19,14 +19,18 @@ Content-Type: application/json
 }
 
 ### Get all the lists
-GET {{host}}/lists
+GET {{host}}/MyList
+Authorization: Bearer {{token}}
+Content-Type: application/json
 
 ### Gets a specific list
-GET {{host}}/list/3
+GET {{host}}/MyList/3
+Authorization: Bearer {{token}}
+Content-Type: application/json
 
-### Post a new list if loged in
+### Post a new list if logged in
 @token = {{login.response.body.token}}
-POST {{host}}/departments
+POST {{host}}/MyList
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
@@ -38,11 +42,11 @@ Content-Type: application/json
 }
 
 ### Delete a list
-DELETE {{host}}/list/6
+DELETE {{host}}/MyList/6
 Authorization: Bearer {{token}}
 
-### Add or remove user
-PATCH {{host}}/lists/3
+### Update list by ID
+PATCH {{host}}/MyList/3
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
@@ -54,16 +58,16 @@ Content-Type: application/json
 }
 
 ### Get list of all items
-GET {{host}}/list
+GET {{host}}/ListItem
 
 ### Get a specific item
-GET {{host}}/list/16
+GET {{host}}/ListItem/16
 
 ### Item does not exist
-GET {{host}}/item/400
+GET {{host}}/ListItem/400
 
 ### Update an existing list's info
-PATCH {{host}}/list/6
+PATCH {{host}}/ListItem/6
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
@@ -74,7 +78,7 @@ Content-Type: application/json
     "listIds": [1]
 }
 
-### Create a lis
+### Create a list
 POST {{host}}/list
 Authorization: Bearer {{token}}
 Content-Type: application/json
