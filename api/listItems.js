@@ -20,10 +20,10 @@ router.post("/", authenticate, async (req, res, next) => {
       data: {
         item,
         myListId,
-        myLists: { connect: myLists },
+        myList: { connect: myLists },
       },
     });
-    res.status(201).json(listItem);
+    res.status(201).json(listItems);
   } catch (e) {
     next(e);
   }
