@@ -32,6 +32,6 @@ model MyList {
 model ListItem {
   id Int @id @default(autoincrement())
   item String
-  myList MyList @relation(fields: [myListId], references: [id])
+  myList MyList @relation(fields: [myListId], references: [id], onDelete: Cascade)
   myListId Int
 }

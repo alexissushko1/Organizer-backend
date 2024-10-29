@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const app = express();
 const PORT = 3000;
@@ -5,8 +6,12 @@ const PORT = 3000;
 const cors = require("cors");
 app.use(cors({ origin: "http://localhost:5173" }));
 
-app.subscribe(require("morgan")("dev"));
+// app.subscribe(require("morgan")("dev"));
 app.use(express.json());
+app.use(require("./api/auth").router);
+app.use(cors({ origin: "http://localhost:5173" }));
+app.use("/MyList", require("./api/Lists"));
+app.use("/ListItems", require("./api/listItems"));
 
 // Logging middleware
 app.use((req, res, next) => {
