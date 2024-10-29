@@ -36,13 +36,13 @@ Content-Type: application/json
 
 {
     "name": "Comedy",
-    "ownerId": 3,
+    "ownerId": 1,
     "description": "loremipsuslistsoffoodteam",
-    "lists": [5,10,15]
+    "listIds": [5,10,15]
 }
 
 ### Delete a list
-DELETE {{host}}/MyList/6
+DELETE {{host}}/MyList/2
 Authorization: Bearer {{token}}
 
 ### Update list by ID

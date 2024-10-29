@@ -6,10 +6,10 @@ const prisma = require("../prisma");
 
 router.get("/", authenticate, async (req, res, next) => {
   try {
-    const MyLists = await prisma.list.findMany({
-      include: { ListItems: true },
+    const myLists = await prisma.myList.findMany({
+      // include: { ListItems: true },
     });
-    res.json(MyLists);
+    res.json(myLists);
   } catch (e) {
     next(e);
   }
@@ -18,11 +18,11 @@ router.get("/", authenticate, async (req, res, next) => {
 router.get("/:id", authenticate, async (req, res, next) => {
   const { id } = req.params;
   try {
-    const MyList = await prisma.MyList.findUniqueOrThrow({
+    const myList = await prisma.myList.findUniqueOrThrow({
       where: { id: +id },
-      include: { ListItems: true },
+      // include: { ListItems: true },
     });
-    res.json(MyList);
+    res.json(myList);
   } catch (e) {
     next(e);
   }
@@ -33,10 +33,10 @@ router.put("/:id", authenticate, async (req, res, next) => {
   const { name, description } = req.body;
   try {
     // Check if the List exists
-    const MyList = await prisma.MyList.findUnique({
+    const myList = await prisma.myList.findUnique({
       where: { id: +id },
     });
-    if (!MyList) {
+    if (!myList) {
       return next({
         status: 404,
         message: `List with id ${id} does not exist.`,
@@ -44,7 +44,7 @@ router.put("/:id", authenticate, async (req, res, next) => {
     }
 
     // Update the List
-    const updatedList = await prisma.MyList.update({
+    const updatedList = await prisma.myList.update({
       where: { id: +id },
       data: { name, description },
     });
@@ -55,17 +55,18 @@ router.put("/:id", authenticate, async (req, res, next) => {
 });
 
 router.post("/", authenticate, async (req, res, next) => {
-  const { name, description } = req.body;
+  const { name, description, listIds, ownerId } = req.body;
   try {
-    const listItems = listIds.map((id) => ({ id }));
-    const MyList = await prisma.MyList.create({
+    const ListItems = listIds.map((id) => ({ id }));
+    const myList = await prisma.myList.create({
       data: {
         name,
         description,
-        listItem: { connect: listItems },
+        ownerId,
+        listItem: { connect: ListItems },
       },
     });
-    res.status(201).json(MyList);
+    res.status(201).json(myList);
   } catch (e) {
     next(e);
   }
@@ -76,22 +77,23 @@ router.delete("/:id", authenticate, async (req, res, next) => {
 
   try {
     // Check if the List exists
-    const MyList = await prisma.MyList.findUnique({
+    const myList = await prisma.myList.findUnique({
       where: { id: +id },
     });
-    if (!MyList) {
+    if (!myList) {
       return next({
         status: 404,
         message: `List with id ${id} does not exist.`,
       });
     }
-    await prisma.ListItems.updateMany({
-      where: { DepartmentId: +id },
-      data: { DepartmentId: null },
-    });
+    // await prisma.myList.deleteMany({
+    //   where: { listItemId: +id },
+    // });
 
     // Delete the list
-    await prisma.MyList.delete({ where: { id: +id } });
+    await prisma.myList.delete({
+      where: { id: +id },
+    });
     res.sendStatus(204);
   } catch (e) {
     next(e);
