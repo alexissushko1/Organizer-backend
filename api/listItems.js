@@ -5,7 +5,7 @@ const prisma = require("../prisma");
 
 router.get("/", authenticate, async (req, res, next) => {
   try {
-    const listIems = await prisma.listItem.findMany();
+    const listItems = await prisma.listItem.findMany();
     res.json(listItems);
   } catch (e) {
     next(e);
@@ -29,4 +29,16 @@ router.post("/", authenticate, async (req, res, next) => {
   }
 });
 
+router.get("/:id", authenticate, async (req, res, next) => {
+  const { id } = req.params;
+  try {
+    const listItem = await prisma.listItem.findUniqueOrThrow({
+      where: { id: +id },
+      include: { myLists: true },
+    });
+    res.json(listItem);
+  } catch (e) {
+    next(e);
+  }
+});
 module.exports = router;
