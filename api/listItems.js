@@ -12,4 +12,21 @@ router.get("/", authenticate, async (req, res, next) => {
   }
 });
 
+router.post("/", authenticate, async (req, res, next) => {
+  const { item, myListId } = req.body;
+  try {
+    const myLists = myListIds.map((id) => ({ id }));
+    const listItems = await prisma.listItem.create({
+      data: {
+        item,
+        myListId,
+        myLists: { connect: myLists },
+      },
+    });
+    res.status(201).json(listItem);
+  } catch (e) {
+    next(e);
+  }
+});
+
 module.exports = router;
