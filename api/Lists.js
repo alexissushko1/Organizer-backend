@@ -28,7 +28,7 @@ router.get("/:id", authenticate, async (req, res, next) => {
   }
 });
 
-router.put("/:id", authenticate, async (req, res, next) => {
+router.patch("/:id", authenticate, async (req, res, next) => {
   const { id } = req.params;
   const { name, description } = req.body;
   try {
