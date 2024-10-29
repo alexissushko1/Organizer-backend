@@ -4,6 +4,10 @@ const PORT = 3000;
 
 app.subscribe(require("morgan")("dev"));
 app.use(express.json());
+app.use(cors({ origin: "http://localhost:5173" }));
+app.use("/MyList", require ("./api/Lists"));
+// app.use("/ListItems", require("./api/")
+)
 
 // Logging middleware
 app.use((req, res, next) => {
