@@ -12,38 +12,22 @@ router.get("/", authenticate, async (req, res, next) => {
   }
 });
 
-router.post("/", authenticate, async (req, res, next) => {
-  const { item, myListId } = req.body;
-  try {
-    const myLists = myListIds.map((id) => ({ id }));
-    const listItems = await prisma.listItem.create({
-      data: {
-        item,
-        myListId,
-        myLists: { connect: myLists },
-      },
-    });
-    res.status(201).json(listItem);
-  } catch (e) {
-    next(e);
-  }
-});
-
 router.get("/:id", authenticate, async (req, res, next) => {
   const { id } = req.params;
   try {
     const listItem = await prisma.listItem.findUniqueOrThrow({
       where: { id: +id },
-      include: { myLists: true },
+      // include: { myLists: true },
     });
     res.json(listItem);
   } catch (e) {
     next(e);
   }
 });
-router.put("/:id", authenticate, async (req, res, next) => {
+
+router.patch("/:id", authenticate, async (req, res, next) => {
   const { id } = req.params;
-  const { name, myListId } = req.body;
+  const { item, myListId } = req.body;
 
   try {
     const listItem = await prisma.listItem.findUniqueOrThrow({
@@ -57,14 +41,29 @@ router.put("/:id", authenticate, async (req, res, next) => {
     }
 
     const updateData = {};
-    if (name) updateData.name = name;
+    if (item) updateData.item = item;
     if (myListId) updateData.myListId = +myListId;
 
     const updatedListItem = await prisma.listItem.update({
-      where: { id: +myListId },
+      where: { id: +id },
       data: updateData,
     });
     res.json(updatedListItem);
+  } catch (e) {
+    next(e);
+  }
+});
+
+router.post("/", authenticate, async (req, res, next) => {
+  const { item, myListId } = req.body;
+  try {
+    const listItem = await prisma.listItem.create({
+      data: {
+        item,
+        myList: { connect: { id: myListId } },
+      },
+    });
+    res.status(201).json(listItem);
   } catch (e) {
     next(e);
   }

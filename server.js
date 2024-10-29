@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(require("./api/auth").router);
 app.use(cors({ origin: "http://localhost:5173" }));
 app.use("/MyList", require("./api/Lists"));
-app.use("/ListItems", require("./api/listItems"));
+app.use("/listItem", require("./api/listItems"));
 
 // Logging middleware
 app.use((req, res, next) => {
