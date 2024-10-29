@@ -18,13 +18,13 @@ Content-Type: application/json
     "password": "yummyfoodie"
 }
 
-### Get all the list
-GET {{host}}/l
+### Get all the lists
+GET {{host}}/lists
 
-### Gets a specific department
-GET {{host}}/departments/3
+### Gets a specific list
+GET {{host}}/list/3
 
-### Post a new department if loged in
+### Post a new list if loged in
 @token = {{login.response.body.token}}
 POST {{host}}/departments
 Authorization: Bearer {{token}}
@@ -32,63 +32,60 @@ Content-Type: application/json
 
 {
     "name": "Comedy",
-    "description": "loremipsiuhsufnsajndkjsandjksand",
-    "image": "https://www.latimes.com/entertainment-arts/story/2022-08-07/la-et-comedy-issue-commentary-the-best-lesson-in-comedy-is-learning-how-to-laugh-at-yourself",
-    "info": "departmentdepartmentdepartmentdepartmentdepartmentdepartment",
-    "professors": [5,10,15]
+    "ownerId": 3,
+    "description": "loremipsuslistsoffoodteam",
+    "lists": [5,10,15]
 }
 
-### Delete a department 
-DELETE {{host}}/departments/6
+### Delete a list
+DELETE {{host}}/list/6
 Authorization: Bearer {{token}}
 
-### Add or remove professors
-PATCH {{host}}/departments/3
-Authorization: Bearer {{token}}
-Content-Type: application/json
-
-{
-    "name": "uuu",
-    "description": "rrr",
-    "image": "yyy",
-    "info": "hhh",
-    "professorIds": [1, 2, 3]
-}
-
-### Get list of all professors
-GET {{host}}/faculty
-
-### Get a specific professor
-GET {{host}}/faculty/16
-
-### Professor does not exist
-GET {{host}}/faculty/400
-
-### Update an existing professor's info
-PATCH {{host}}/faculty/6
+### Add or remove user
+PATCH {{host}}/lists/3
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-    "name": "Zedd",
-    "email": "telos@zedd.com",
-    "bio": "Listen to my new album, Telos!",
-    "departmentId": 2
+    "name": "Comedy",
+    "ownerId": 2,
+    "description": "loremipsuslistsoffoodteam",
+    "listIds": [1, 2, 3]
 }
 
-### Create a professor
-POST {{host}}/faculty
+### Get list of all items
+GET {{host}}/list
+
+### Get a specific item
+GET {{host}}/list/16
+
+### Item does not exist
+GET {{host}}/item/400
+
+### Update an existing list's info
+PATCH {{host}}/list/6
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-    "name": "Crankdat",
-    "email": "rave@rave.com",
-    "bio": "bio",
-    "image": "uuu",
-    "department": 4
+    "name": "Comedy",
+    "ownerId": 5,
+    "description": "loremipsuslistsoffoodteam",
+    "listIds": [1]
 }
 
-### Delete a professor
-DELETE {{host}}/faculty/21
+### Create a lis
+POST {{host}}/list
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+     "name": "Yummy",
+    "ownerId": 8,
+    "description": "loremipsuslistsoffoodteam",
+    "listIds": [7]
+}
+
+### Delete an item
+DELETE {{host}}/item/21
 Authorization: Bearer {{token}}
