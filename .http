@@ -14,7 +14,7 @@ POST {{host}}/login
 Content-Type: application/json
 
 {
-    "username": "food@recipee",
+    "username": "food@recipe",
     "password": "yummyfoodie"
 }
 
@@ -60,31 +60,38 @@ Authorization: Bearer {{token}}
 ### Get list of all items
 GET {{host}}/listItem
 Authorization: Bearer {{token}}
+Content-Type: application/json
 
 ### Get a specific item
-GET {{host}}/listItem/14
+GET {{host}}/listItem/16
 Authorization: Bearer {{token}}
+Content-Type: application/json
+
+### Item does not exist
+GET {{host}}/listItem/400
+Authorization: Bearer {{token}}
+Content-Type: application/json
 
 ### Update an existing list's info
-PATCH {{host}}/listItem/14
+PATCH {{host}}/listItem/7
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-    "item": "Luscious Baked Bread",
-    "listIds": [3]
+    "item": "Yummy",
+    "myListId": 7
 }
 
-### Create a listitem
+### Create a list
 POST {{host}}/listItem
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-     "item": "Yummy pasta",
-     "myListId": 3
+    "item": "Yummy",
+    "myListId": 9
 }
 
 ### Delete an item
-DELETE {{host}}/listItem/21
+DELETE {{host}}/listItem/6
 Authorization: Bearer {{token}}
