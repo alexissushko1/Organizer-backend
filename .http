@@ -4,7 +4,7 @@ POST {{host}}/register
 Content-Type: application/json
 
 {
-    "username": "food@recipee",
+    "username": "food@recipe",
     "password": "yummyfoodie"
 }
 
@@ -14,7 +14,7 @@ POST {{host}}/login
 Content-Type: application/json
 
 {
-    "username": "food@recipee",
+    "username": "food@recipe",
     "password": "yummyfoodie"
 }
 
@@ -36,17 +36,13 @@ Content-Type: application/json
 
 {
     "name": "Comedy",
-    "ownerId": 3,
+    "ownerId": 1,
     "description": "loremipsuslistsoffoodteam",
-    "lists": [5,10,15]
+    "listIds": [5,10,15]
 }
 
-### Delete a list
-DELETE {{host}}/MyList/6
-Authorization: Bearer {{token}}
-
 ### Update list by ID
-PATCH {{host}}/MyList/3
+PATCH {{host}}/MyList/5
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
@@ -57,39 +53,45 @@ Content-Type: application/json
     "listIds": [1, 2, 3]
 }
 
+### Delete a list
+DELETE {{host}}/MyList/2
+Authorization: Bearer {{token}}
+
 ### Get list of all items
-GET {{host}}/ListItem
+GET {{host}}/listItem
+Authorization: Bearer {{token}}
+Content-Type: application/json
 
 ### Get a specific item
-GET {{host}}/ListItem/16
+GET {{host}}/listItem/16
+Authorization: Bearer {{token}}
+Content-Type: application/json
 
 ### Item does not exist
-GET {{host}}/ListItem/400
+GET {{host}}/listItem/400
+Authorization: Bearer {{token}}
+Content-Type: application/json
 
 ### Update an existing list's info
-PATCH {{host}}/ListItem/6
+PATCH {{host}}/listItem/7
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-    "name": "Comedy",
-    "ownerId": 5,
-    "description": "loremipsuslistsoffoodteam",
-    "listIds": [1]
+    "item": "Yummy",
+    "myListId": 7
 }
 
 ### Create a list
-POST {{host}}/list
+POST {{host}}/listItem
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-     "name": "Yummy",
-    "ownerId": 8,
-    "description": "loremipsuslistsoffoodteam",
-    "listIds": [7]
+    "item": "Yummy",
+    "myListId": 9
 }
 
 ### Delete an item
-DELETE {{host}}/item/21
+DELETE {{host}}/listItem/6
 Authorization: Bearer {{token}}
