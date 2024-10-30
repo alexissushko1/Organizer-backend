@@ -58,38 +58,40 @@ Content-Type: application/json
 }
 
 ### Get list of all items
-GET {{host}}/ListItem
+GET {{host}}/ListItems
+Authorization: Bearer {{token}}
+Content-Type: application/json
 
 ### Get a specific item
-GET {{host}}/ListItem/16
+GET {{host}}/ListItems/16
+Authorization: Bearer {{token}}
+Content-Type: application/json
 
 ### Item does not exist
-GET {{host}}/ListItem/400
+GET {{host}}/ListItems/400
+Authorization: Bearer {{token}}
+Content-Type: application/json
 
 ### Update an existing list's info
-PATCH {{host}}/ListItem/6
+PUT {{host}}/ListItems/6
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-    "name": "Comedy",
-    "ownerId": 5,
-    "description": "loremipsuslistsoffoodteam",
-    "listIds": [1]
+    "item": "Yummy",
+    "myListId": 6
 }
 
 ### Create a list
-POST {{host}}/list
+PUT {{host}}/ListItems/8
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-     "name": "Yummy",
-    "ownerId": 8,
-    "description": "loremipsuslistsoffoodteam",
-    "listIds": [7]
+    "item": "Yummy",
+    "myListId": 9
 }
 
 ### Delete an item
-DELETE {{host}}/item/21
+DELETE {{host}}/ListItems/21
 Authorization: Bearer {{token}}
