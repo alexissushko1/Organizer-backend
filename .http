@@ -4,7 +4,7 @@ POST {{host}}/register
 Content-Type: application/json
 
 {
-    "username": "food@recipee",
+    "username": "food@recipe",
     "password": "yummyfoodie"
 }
 
@@ -14,7 +14,7 @@ POST {{host}}/login
 Content-Type: application/json
 
 {
-    "username": "food@recipee",
+    "username": "food@recipe",
     "password": "yummyfoodie"
 }
 
@@ -41,12 +41,8 @@ Content-Type: application/json
     "listIds": [5,10,15]
 }
 
-### Delete a list
-DELETE {{host}}/MyList/2
-Authorization: Bearer {{token}}
-
 ### Update list by ID
-PATCH {{host}}/MyList/3
+PATCH {{host}}/MyList/5
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
@@ -57,33 +53,37 @@ Content-Type: application/json
     "listIds": [1, 2, 3]
 }
 
+### Delete a list
+DELETE {{host}}/MyList/2
+Authorization: Bearer {{token}}
+
 ### Get list of all items
-GET {{host}}/ListItems
+GET {{host}}/listItem
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 ### Get a specific item
-GET {{host}}/ListItems/16
+GET {{host}}/listItem/16
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 ### Item does not exist
-GET {{host}}/ListItems/400
+GET {{host}}/listItem/400
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 ### Update an existing list's info
-PUT {{host}}/ListItems/6
+PATCH {{host}}/listItem/7
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
     "item": "Yummy",
-    "myListId": 6
+    "myListId": 7
 }
 
 ### Create a list
-PUT {{host}}/ListItems/8
+POST {{host}}/listItem
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
@@ -93,5 +93,5 @@ Content-Type: application/json
 }
 
 ### Delete an item
-DELETE {{host}}/ListItems/21
+DELETE {{host}}/listItem/6
 Authorization: Bearer {{token}}
