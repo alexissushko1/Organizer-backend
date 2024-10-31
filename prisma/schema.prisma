@@ -17,7 +17,7 @@ model User {
   id Int @id @default(autoincrement())
   username String @unique
   password String
-  myList MyList[]
+  myLists MyList[]
 }
 
 model MyList {
@@ -26,12 +26,12 @@ model MyList {
   description String
   owner User @relation(fields: [ownerId], references: [id])
   ownerId Int
-  listItem ListItem[]
+  listItems ListItem[]
 }
 
 model ListItem {
   id Int @id @default(autoincrement())
-  item String
+  itemName String
   myList MyList @relation(fields: [myListId], references: [id], onDelete: Cascade)
   myListId Int
 }
