@@ -34,7 +34,7 @@ const seed = async (numUsers = 5) => {
     });
 
     const listItems = Array.from({ length: 5 }, () => ({
-      item: faker.commerce.productName(),
+      itemName: faker.commerce.productName(),
       myListId: myList.id,
     }));
     await prisma.listItem.createMany({ data: listItems });
