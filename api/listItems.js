@@ -58,7 +58,7 @@ router.patch("/:id", authenticate, async (req, res, next) => {
     }
 
     const updateData = {};
-    if (itemName) updateData.item = itemName;
+    if (itemName) updateData.itemName = itemName;
     if (myListId) updateData.myListId = +myListId;
 
     const updatedListItem = await prisma.listItem.update({
