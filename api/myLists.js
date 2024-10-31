@@ -20,7 +20,7 @@ router.get("/:id", authenticate, async (req, res, next) => {
   try {
     const myList = await prisma.myList.findUniqueOrThrow({
       where: { id: +id },
-      // include: { ListItems: true },
+      include: { listItems: true },
     });
     res.json(myList);
   } catch (e) {
