@@ -19,18 +19,18 @@ Content-Type: application/json
 }
 
 ### Get all the lists
-GET {{host}}/MyList
+GET {{host}}/myLists
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 ### Gets a specific list
-GET {{host}}/MyList/3
+GET {{host}}/myLists/3
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 ### Post a new list if logged in
 @token = {{login.response.body.token}}
-POST {{host}}/MyList
+POST {{host}}/myLists
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
@@ -42,7 +42,7 @@ Content-Type: application/json
 }
 
 ### Update list by ID
-PATCH {{host}}/MyList/5
+PATCH {{host}}/myLists/5
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
@@ -54,44 +54,44 @@ Content-Type: application/json
 }
 
 ### Delete a list
-DELETE {{host}}/MyList/2
+DELETE {{host}}/myLists/2
 Authorization: Bearer {{token}}
 
 ### Get list of all items
-GET {{host}}/listItem
+GET {{host}}/listItems
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 ### Get a specific item
-GET {{host}}/listItem/16
+GET {{host}}/listItems/5
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 ### Item does not exist
-GET {{host}}/listItem/400
+GET {{host}}/listItems/400
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 ### Update an existing list's info
-PATCH {{host}}/listItem/7
+PATCH {{host}}/listItems/11
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-    "item": "Yummy",
-    "myListId": 7
+    "itemName": "Yummy",
+    "myListId": 1
 }
 
 ### Create a list
-POST {{host}}/listItem
+POST {{host}}/listItems
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-    "item": "Yummy",
+    "itemName": "Yummy",
     "myListId": 9
 }
 
 ### Delete an item
-DELETE {{host}}/listItem/6
+DELETE {{host}}/listItems/15
 Authorization: Bearer {{token}}

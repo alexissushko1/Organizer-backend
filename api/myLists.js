@@ -63,7 +63,7 @@ router.post("/", authenticate, async (req, res, next) => {
         name,
         description,
         ownerId,
-        listItem: { connect: ListItems },
+        listItems: { connect: ListItems },
       },
     });
     res.status(201).json(myList);
