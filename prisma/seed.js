@@ -11,17 +11,17 @@ const seed = async (numUsers = 5) => {
     .then((users) => users.map((user) => user.id));
 
   const myListsData = [
-    { name: "Recipe 1", description: "Soup" },
-    { name: "Recipe 2", description: "Steak" },
-    { name: "Recipe 3", description: "Chow" },
-    { name: "Recipe 4", description: "Noodles" },
-    { name: "Recipe 5", description: "Ramen" },
-    { name: "Recipe 6", description: "Soup" },
-    { name: "Recipe 7", description: "Soup" },
-    { name: "Recipe 8", description: "Soup" },
-    { name: "Recipe 9", description: "Soup" },
-    { name: "Recipe 10", description: "Soup" },
-    { name: "Recipe 11", description: "Soup" },
+    { name: "Clam chowder", description: "Soup" },
+    { name: "Fajitas", description: "Steak" },
+    { name: "Puppy chow", description: "Chow" },
+    { name: "Chocolate chip cookies", description: "Noodles" },
+    { name: "Apple pie", description: "Ramen" },
+    { name: "Muddy buddies", description: "Soup" },
+    { name: "Zuppa toscana", description: "Soup" },
+    { name: "Gumbo", description: "Soup" },
+    { name: "Lobster tail", description: "Soup" },
+    { name: "Mac n' Cheese", description: "Soup" },
+    { name: "Pozole", description: "Soup" },
   ];
 
   for (const myListData of myListsData) {
