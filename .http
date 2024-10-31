@@ -19,7 +19,7 @@ Content-Type: application/json
 }
 
 ### Get all the lists
-GET {{host}}/MyList
+GET {{host}}/myLists
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
