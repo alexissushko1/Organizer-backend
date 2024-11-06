@@ -8,9 +8,9 @@ Overview:
 Organize and tackle your todo's in life with Organizer, which will show you where all your needs are for your convenience!
 
 ## Technical Challenges:
-Third party integration/acquiring and implementing a map API
-Store rendering on "Near Me" map feature, based on list items
-Real-time updating
+- Third party integration/acquiring and implementing a map API
+- Store rendering on "Near Me" map feature, based on list items
+- Real-time updating
 
 ## Organizer-backend
 1. Create a new Postgres database named organizer.
@@ -27,22 +27,22 @@ Real-time updating
 - See the price for the list items from an individual list
   
 ## Authentication Routes
-- POST /register -  creates a new User with the provided credentials and sends a token
-request body should include username and password
-the password should be hashed in the database
+- POST /register: creates a new User with the provided credentials and sends a token
+   - Request body should include username and password
+   - The password should be hashed in the database
 - POST /login - sends a token if the provided credentials are valid
-request body should include username and password
+   - Request body should include username and password
 
 ## List Routes
-GET /myLists
-PUT /myLists/:id
-DELETE /myLists/:id
-GET /myLists/:id
-POST /myLists
+- GET /myLists
+- PUT /myLists/:id
+- DELETE /myLists/:id
+- GET /myLists/:id
+- POST /myLists
 
 ## List Items Routes
-DELETE /listItems/:id
-PUT /listItems/:id
-GET /listItems/:id
-POST /listItems
-GET /listItems
+- DELETE /listItems/:id
+- PUT /listItems/:id
+- GET /listItems/:id
+- POST /listItems
+- GET /listItems
