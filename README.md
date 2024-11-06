@@ -9,18 +9,18 @@
 Organize and tackle your todo's in life with Organizer, which will show you where all your needs are for your convenience! This app will find the location of where your organized listed items are, so you can plan out exactly where to go to accomplish your todo's efficiently.
 
 ## Organizer-Backend
-1. Create a new Postgres database named organizer.
-2. Initialize Prisma and connect it to the database.
-3. Define the models according to the schema above.
-4. The username of a User must be unique.
-5. Seed the database with MyList.
+1. Create a new Postgres database named organizer
+2. Initialize Prisma and connect it to the database
+3. Define the models according to the schema above
+4. The username of a User must be unique
+5. Seed the database with MyList
    
 ## Logged in users should be able to:
 - Create a new list
 - Add items to a list
 - Delete a list
 - Search for near by stores that has the products from a specific list
-- See the price for the list items from an individual list
+- See the price for the product-oriented list items from an individual list (stretch goal)
   
 ## Authentication Routes
 - POST /register: creates a new User with the provided credentials and sends a token
