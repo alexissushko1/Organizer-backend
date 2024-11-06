@@ -4,7 +4,8 @@
 
 # Organizer
 
-Overview:
+## Overview:
+
 Organize and tackle your todo's in life with Organizer, which will show you where all your needs are for your convenience!
 
 ## Technical Challenges:
