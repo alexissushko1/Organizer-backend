@@ -2,11 +2,12 @@
 
 <img width="477" alt="image" src="https://github.com/user-attachments/assets/a8cf830e-476b-443f-ba7e-968bc81ce7a3">
 
-# Organizer
-
 ## Overview:
 
 Organize and tackle your todo's in life with Organizer, which will show you where all your needs are for your convenience! This app will find the location of where your organized listed items are, so you can plan out exactly where to go to accomplish your todo's efficiently.
+
+
+# Organizer
 
 ## Organizer-Backend
 1. Create a new Postgres database named organizer
