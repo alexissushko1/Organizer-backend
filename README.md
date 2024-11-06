@@ -46,6 +46,7 @@ Organize and tackle your todo's in life with Organizer, which will show you wher
 
 
 ## Technical Challenges:
-- Third party integration/acquiring and implementing a map API
+- Third party acquisition and implementation of map API
+- Integrating third party API with hardcoded database
 - Store(s) rendering on "Near Me" map feature, based on list items
 - Real-time updating
