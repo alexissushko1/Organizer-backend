@@ -1,11 +1,12 @@
 # Organizer-backend
 
-https://dbdiagram.io/d/Organizer-Schema-671fecc097a66db9a38f55f4
+<img width="477" alt="image" src="https://github.com/user-attachments/assets/a8cf830e-476b-443f-ba7e-968bc81ce7a3">
+[https://dbdiagram.io/d/Organizer-Schema-671fecc097a66db9a38f55f4](https://dbdiagram.io/d/672acdf3e9daa85aca738845)
 
 ##Organizer
 
 Overview:
-Organize and tackle your todo's in life with ________, which will show you where all your needs are for your convenience!
+Organize and tackle your todo's in life with Organizer, which will show you where all your needs are for your convenience!
 
 # Technical Challenges:
 Third party integration/acquiring and implementing a map API
