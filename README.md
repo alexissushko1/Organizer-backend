@@ -8,12 +8,7 @@
 
 Organize and tackle your todo's in life with Organizer, which will show you where all your needs are for your convenience! This app will find the location of where your organized listed items are, so you can plan out exactly where to go to accomplish your todo's efficiently.
 
-## Technical Challenges:
-- Third party integration/acquiring and implementing a map API
-- Store rendering on "Near Me" map feature, based on list items
-- Real-time updating
-
-## Organizer-backend
+## Organizer-Backend
 1. Create a new Postgres database named organizer.
 2. Initialize Prisma and connect it to the database.
 3. Define the models according to the schema above.
@@ -47,3 +42,9 @@ Organize and tackle your todo's in life with Organizer, which will show you wher
 - GET /listItems/:id
 - POST /listItems
 - GET /listItems
+
+
+## Technical Challenges:
+- Third party integration/acquiring and implementing a map API
+- Store rendering on "Near Me" map feature, based on list items
+- Real-time updating
