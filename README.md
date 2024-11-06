@@ -6,7 +6,7 @@
 
 ## Overview:
 
-Organize and tackle your todo's in life with Organizer, which will show you where all your needs are for your convenience!
+Organize and tackle your todo's in life with Organizer, which will show you where all your needs are for your convenience! This app will find the location of where your organized listed items are, so you can plan out exactly where to go to accomplish your todo's efficiently.
 
 ## Technical Challenges:
 - Third party integration/acquiring and implementing a map API
