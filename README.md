@@ -1,21 +1,22 @@
-# Organizer-Backend
+# TasteTracker-Backend
 
 <img width="477" alt="image" src="https://github.com/user-attachments/assets/a8cf830e-476b-443f-ba7e-968bc81ce7a3">
 
 ## Overview
 
-Organize and tackle your todo's in life with Organizer, which will show you where all your needs are for your convenience! This app will find the location of where your organized listed items are, so you can plan out exactly where to go to accomplish your todo's efficiently.
+Looking to try out new, exotic and/or healthy recipes, but don't want to guess at where all the different herbs, spices, and specialty ingredients are in your area? Well, with TasteTracker, you can precisely locate where all these ingredients are without having to take a shot in the dark. TasteTracker takes your recipe lists and populates the store(s) or other locations that carry your list items on the app's "Near Me" map, so you know exactly where to go to find them. Making new recipes doesn't have to be so daunting with TasteTracker leading you onto the next recipe you've been dying to try out!
 
+# TasteTracker
 
-# Organizer
-
-## Organizer-Backend
-1. Create a new Postgres database named organizer
+## TasteTracker-Backend
+1. Create a new Postgres database named organizer*
 2. Initialize Prisma and connect it to the database
 3. Define the models according to the schema above
 4. The username of a User must be unique
 5. Seed the database with MyList
-   
+
+*name kept as such for the code, as the app is meant (eventually) to become an organizer that can help people with any project, task, activity, etc to find what they need to complete them.
+
 ## Logged in users should be able to:
 - Create a new list
 - Add items to a list
