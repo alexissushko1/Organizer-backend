@@ -95,3 +95,17 @@ Content-Type: application/json
 ### Delete an item
 DELETE {{host}}/listItems/15
 Authorization: Bearer {{token}}
+
+### Get Items
+GET {{host}}/shopping/items
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+### Calculate Cart Total
+POST {{host}}/shopping/cart
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "selectedItems": [1, 3]
+}
