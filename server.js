@@ -4,7 +4,14 @@ const app = express();
 const PORT = 3000;
 
 const cors = require("cors");
-app.use(cors({ origin: "https://tastetracker5.netlify.app" }));
+app.use(
+  cors({
+    origin: "https://tastetracker5.netlify.app",
+    methods: ["GET", "POST", "DELETE", "PUT", "PATCH"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
+app.options("*", cors({ origin: "https://tastetracker5.netlify.app" }));
 
 app.use(express.json());
 
