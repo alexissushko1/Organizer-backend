@@ -9,8 +9,8 @@ app.use(cors({ origin: "http://localhost:5173" }));
 app.use(express.json());
 
 app.use(require("./api/auth").router);
-app.use("/myLists", require("./api/myLists"));
-app.use("/listItems", require("./api/listItems"));
+app.use("/my-lists", require("./api/myLists"));
+app.use("/list-items", require("./api/listItems"));
 app.use("/shopping", require("./api/shopping"));
 
 // Logging middleware
